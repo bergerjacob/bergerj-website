@@ -1,0 +1,99 @@
+:root {
+    --favorite-purple: #6D2EAD; /* Define your favorite purple color */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #213737;
+    color: #ffffff;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header styles updated for flexbox layout */
+header {
+    display: flex; /* Enables flexbox */
+    justify-content: space-between; /* Positions title on left, nav on right */
+    align-items: center; /* Centers items vertically */
+    background: none;
+    color: white;
+    padding: 0 20px; /* Adjusted padding for entire header */
+    min-height: 70px;
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    font-size: 1.5em; /* Adjust size as needed */
+}
+
+header h1 a {
+    color: white; /* Or any color you prefer */
+    text-decoration: none;
+}
+
+/* Navigation menu styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Aligns navigation items in a row */
+}
+
+nav ul li {
+    padding: 0 10px; /* Adjust spacing as needed */
+}
+
+nav ul li a {
+    color: white; /* Or any color you prefer */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover, header .highlight, header .current a {
+    color: purple;
+    font-weight: bold;
+}
+
+/* Footer styles */
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: black;
+    background: none;
+    text-align: center;
+}
+
+/* Text color */
+p, h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+    nav ul {
+        padding-top: 10px;
+    }
+}

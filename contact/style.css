@@ -1,0 +1,44 @@
+.contact-container {
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 40px auto;
+    /* Allows children to preserve 3D positions */
+    transform-style: preserve-3d;
+
+    /* Transition for smooth animation */
+    transition: transform 0.3s ease;
+}
+
+.contact-info {
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+}
+
+.contact-info ul {
+    padding-left: 0; /* Removes default padding */
+}
+
+.contact-info li {
+    padding: 10px 0; /* Adds vertical spacing between items */
+    font-size: 18px; /* Increases readability */
+}
+
+.label {
+    font-weight: bold;
+}
+
+a {
+    color: #6D2EAD; /* Matching purple color for links */
+    text-decoration: none; /* Removes underline from links */
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+a:hover {
+    color: #9B51E0; /* Lighter purple for hover state */
+}
+
+h2 {
+    color: #333; /* Dark color for headers */
+}

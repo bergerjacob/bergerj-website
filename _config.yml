@@ -1,0 +1,7 @@
+title: Jacob Berger's Portfolio
+description: Jacob Berger's Portfolio
+baseurl: "/"
+url: "https://www.bergerj.com/"
+
+# Build settings
+theme: minima
