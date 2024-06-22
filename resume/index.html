@@ -4,5 +4,12 @@ title: Resume
 ---
 <link rel="stylesheet" href="{{ '/resume/style.css' | relative_url }}">
 
-<embed src="../assets/documents/Jacob_Berger_Resume.pdf" download="Jacob_Berger_Resume" type="application/pdf" width="100%" height="600px">
+<!-- Responsive Container for PDF -->
+<div style="position: relative; padding-bottom: 100%; height: 0; overflow: hidden;">
+    <iframe src="../assets/documents/Jacob_Berger_Resume.pdf" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0"></iframe>
+</div>
 
+<!-- Download Link -->
+<p>
+    <a href="../assets/documents/Jacob_Berger_Resume.pdf" download="Jacob_Berger_Resume">Download Resume</a>
+</p>

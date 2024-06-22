@@ -1,5 +1,5 @@
 :root {
-    --favorite-purple: #6D2EAD; /* Define your favorite purple color */
+    --favorite-purple: #6D2EAD;
 }
 
 body {
@@ -7,7 +7,10 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #213737;
+    /* Prefer this bg color, will change back if google iframe bgcolor is fixed */
+    /* background-color: #213737; */
+    
+    background-color: #383438;
     color: #ffffff;
 }
 
