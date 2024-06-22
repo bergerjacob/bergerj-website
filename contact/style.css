@@ -28,7 +28,7 @@
     font-weight: bold;
 }
 
-a {
+.contact-container a {
     color: #6D2EAD; /* Matching purple color for links */
     text-decoration: none; /* Removes underline from links */
     font-weight: bold;

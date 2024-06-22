@@ -1,0 +1,22 @@
+html, body {
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Hide horizontal scroll */
+}
+
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Adjusted for better fitting */
+    width: 100%; /* Ensure the container takes full width */
+    padding: 10vh 0; /* Vertical padding to maintain overall balance */
+}
+
+.calendar-iframe {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    border: none; /* No border */
+}
