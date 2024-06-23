@@ -13,7 +13,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: '3.3'
 
       # Install dependencies (Jekyll)
       - name: Install dependencies
@@ -21,9 +21,9 @@ jobs:
           gem install bundler
           bundle install
 
-      # Build the site with Jekyll
+      # Build the site with Jekyll using bundle exec
       - name: Build Jekyll site
-        run: jekyll build
+        run: bundle exec jekyll build
 
       # Deploy to Firebase
       - uses: FirebaseExtended/action-hosting-deploy@v0
