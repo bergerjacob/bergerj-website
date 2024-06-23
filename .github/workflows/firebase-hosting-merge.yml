@@ -13,7 +13,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7 # Specify the Ruby version you need for your project
+          ruby-version: 3.0
 
       # Install dependencies (Jekyll)
       - name: Install dependencies
