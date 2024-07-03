@@ -6,3 +6,4 @@ vendor/
 .DS_Store
 .firebase/
 firebase-debug.log*
+Gemfile.lock
