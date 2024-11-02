@@ -31,6 +31,17 @@ header {
     min-height: 70px;
 }
 
+a {
+    color: #87aacc; /* Light blue color for all general links */
+    text-decoration: none; /* Removes underline by default */
+    transition: color 0.3s ease-in-out; /* Smooth color transition for hover effects */
+}
+
+a:hover {
+    color: #6d8ca8; /* Slightly darker light blue for hover, adjust as needed */
+    text-decoration: underline; /* Adds underline on hover */
+}
+
 header h1 {
     font-family: 'Merriweather', serif;
     margin: 0;
