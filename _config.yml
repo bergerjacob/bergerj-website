@@ -1,7 +1,10 @@
-title: Jacob Berger's Portfolio
-description: Jacob Berger's Portfolio
+title: Jacob Berger's Portfolio # More descriptive title for SEO
+author: Jacob Berger # Your name
+description: Personal portfolio website of Jacob Berger, showcasing projects, resume, and skills in data science, machine learning, and web development. # Improved description for SEO
+keywords: portfolio, data science, machine learning, web development, oregon state university, projects, resume, Jacob Berger # Added relevant keywords
+default_image: /assets/images/Subject.png # Path to default image for social sharing
 baseurl: "/"
-url: "https://www.bergerj.com/"
+url: "https://www.bergerj.com/" # Your website URL - VERY IMPORTANT for canonical URLs and social sharing
 
 # Build settings
 theme: minima
