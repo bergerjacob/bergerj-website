@@ -39,25 +39,25 @@
 
     <meta name="theme-color" content="#BB6D2EAD">
 
-</head>
-<body>
-    <header>
-        <h1><a href="{{ '/' | relative_url }}">Jacob Berger</a></h1>
-        <nav>
-            <ul>
-                <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
-                <li><a href="{{ '/projects' | relative_url }}">Projects</a></li>
-                <li><a href="{{ '/calendar' | relative_url }}">Calendar</a></li>
-                <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        {{ content }}
-    </div>
-    <footer>
-        <p>© {{ site.time | date: '%Y' }} {{ site.title }}. All Rights Reserved.</p>
-    </footer>
-</body>
+    </head>
+    <body>
+        <header>
+            <h1><a href="{{ '/' | relative_url }}">Jacob Berger</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
+                    <li><a href="{{ '/projects' | relative_url }}">Projects</a></li>
+                    <li><a href="{{ '/calendar' | relative_url }}">Calendar</a></li>
+                    <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            {{ content }}
+        </div>
+        <footer>
+            <p>© {{ site.time | date: '%Y' }} {{ site.title }}. All Rights Reserved.</p>
+        </footer>
+    </body>
 </html>
