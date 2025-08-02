@@ -1,0 +1,48 @@
+---
+layout: page
+title: Apps
+---
+<link rel="stylesheet" href="{{ '/projects/style.css' | relative_url }}">
+
+<input type="number" id="seedInput" placeholder="Enter Minecraft seed">
+<button id="findChunks">Find Slime Chunks</button>
+<div id="output" style="white-space: pre-wrap;"></div> <script>
+    const seedInput = document.getElementById('seedInput');
+    const findChunksButton = document.getElementById('findChunks');
+    const outputDiv = document.getElementById('output');
+
+    findChunksButton.addEventListener('click', () => {
+        const seed = seedInput.value;
+        if (!seed) {
+            outputDiv.textContent = 'Please enter a seed.';
+            return;
+        }
+        outputDiv.textContent = 'Searching... this may take a moment.';
+
+        // ✅ 1. Use your correct Cloud Run URL
+        const apiUrl = 'https://slime-chunk-finder-2lzsvwajea-uc.a.run.app'; 
+
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                // ✅ 2. 'Authorization' header is removed
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ seed: seed })
+        })
+        // ✅ 3. Simplified response handling
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text(); // Get the response as simple text
+        })
+        .then(text => {
+            outputDiv.textContent = text; // Display the final text
+        })
+        .catch(error => {
+            console.error('Error fetching slime chunk data:', error);
+            outputDiv.textContent = 'Error fetching data. Check the console for details.';
+        });
+    });
+</script>
