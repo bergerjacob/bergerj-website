@@ -1,28 +1,26 @@
 /* For homepage only */
 
-/* For the container holding the image and description */
 .profile-container {
-    display: flex; /* Enables Flexbox */
-    align-items: center; /* Vertically centers the flex items */
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
-/* For the image */
 .profile-pic {
-    max-width: 100%; /* Ensures the image is responsive */
-    height: auto; /* Maintains aspect ratio */
-    width: 480px; /* Sets the width of the image */
+    max-width: 100%;
+    height: auto;
+    width: 480px;
+    flex-shrink: 0;
 }
 
-/* For the text container */
 .text-container {
     display: flex;
-    flex-direction: column; /* Stacks children elements vertically */
-    margin-left: 32px; /* Space between image and text container */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* For the description elements */
 h2.description, p.description {
-    margin-bottom: 8px; /* Adjust as needed */
+    margin-bottom: 8px;
     margin-top: 8px;
 }
 
@@ -42,8 +40,68 @@ h2.description {
     text-shadow: 0 0 8px rgba(255, 255, 0, 0.2);
 }
 
-
 /* Ensure no margin is added to the last description element */
 .text-container > :last-child {
     margin-bottom: 0;
+}
+
+
+.clock-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between clock and switch */
+    margin-top: 2rem;
+}
+
+.clock-link {
+    text-decoration: none;
+    display: block;
+}
+
+.clock-iframe {
+    height: 100px;
+    border: none;
+    display: block;
+    pointer-events: none;
+}
+
+.switch-container {
+    flex-shrink: 0; /* Prevents the switch from shrinking */
+}
+
+.mode-switch-checkbox {
+    display: none; /* Hides the actual checkbox */
+}
+
+.mode-switch-label {
+    display: block;
+    width: 50px;
+    height: 24px;
+    background-color: #343a40; /* Dark grey from clock */
+    border: 1px solid #6c757d; /* Light grey from clock */
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mode-switch-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #f8f9fa; /* White from clock hands */
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.mode-switch-checkbox:checked + .mode-switch-label {
+    background-color: #343a40; /* Active state color same as inactive state*/
+}
+
+.mode-switch-checkbox:checked + .mode-switch-label::before {
+    transform: translateX(24px);
 }

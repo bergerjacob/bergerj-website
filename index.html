@@ -4,12 +4,27 @@ layout: page
 <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 
 <div class="profile-container">
-        <img src="../assets/images/profile_pic.JPEG" alt="Profile picture" class="profile-pic">
-        <div class="text-container">
-                <h2 class="description">Hi, I'm <span class="rainbow-text">Jacob Berger</span></h2>
-                <p class="description">
+    <img src="../assets/images/profile_pic.JPEG" alt="Profile picture" class="profile-pic">
+    <div class="text-container">
+        <h2 class="description">Hi, I'm <span class="rainbow-text">Jacob Berger</span></h2>
+        <p class="description">
             My studies in math and computer science at Oregon State University are guided by a simple yet powerful idea: to use technology to make a difference. I'm currently collaborating with team members at Oregon State's STAR lab to kick off a startup. Our goal is straightforward – to use advanced language models to solve practical problems. This project, alongside my academic work, reflects my belief that blending the precision of math with the possibilities of technology can lead to significant progress. I'm excited by the potential of AI to better our world and support a diverse set of communities.
-                    </p>
-            </div>
-
+        </p>
+        <div class="clock-container">
+            <a href="https://github.com/bergerjacob/clocks-clock" target="_blank" rel="noopener noreferrer" class="clock-link">
+                <iframe
+                    id="clock-widget"
+                    src="https://bergerjacob.github.io/clocks-clock/?height=100&faceColor1=6c757d&faceColor2=343a40&handColor=f8f9fa&inactiveAlpha=60&transparentBg=true&digitSpacing=0&mode=5x3"
+                    class="clock-iframe"
+                    title="Monochrome Clock Widget">
+                </iframe>
+            </a>
+            <div class="switch-container">
+                <input type="checkbox" id="mode-switch" class="mode-switch-checkbox">
+                <label for="mode-switch" class="mode-switch-label"></label>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="{{ '/switch.js' | relative_url }}"></script>
