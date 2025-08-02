@@ -59,7 +59,7 @@ h2.description {
 }
 
 .clock-iframe {
-    height: 100px;
+    height: 80px;
     border: none;
     display: block;
     pointer-events: none;
