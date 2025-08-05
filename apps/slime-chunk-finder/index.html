@@ -34,7 +34,8 @@ title: Apps
     const findChunksButton = document.getElementById('findChunks');
     const outputDiv = document.getElementById('output');
 
-    findChunksButton.addEventListener('click', () => {
+    // Make the event listener function async to allow the use of 'await'
+    findChunksButton.addEventListener('click', async () => {
         const seed = seedInput.value;
         const startRadius = startRadiusInput.value;
         const endRadius = endRadiusInput.value;
@@ -45,38 +46,42 @@ title: Apps
         }
         outputDiv.textContent = 'Searching for slime chunks...\n';
 
-        const apiUrl = 'https://slime-chunk-finder-832728061487.us-central1.run.app';
+        const apiUrl = 'https://us-central1-bergerj-webserver.cloudfunctions.net/slime-chunk-finder';
+        
+        // This 'try...catch' block will now catch any error during the entire process
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    seed: seed,
+                    startRadius: startRadius,
+                    endRadius: endRadius
+                })
+            });
 
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                seed: seed,
-                startRadius: startRadius,
-                endRadius: endRadius
-            })
-        })
-        .then(response => {
+            // If the server sends a specific error (like 400 Bad Request), handle it
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Server error (${response.status}): ${errorText}`);
+            }
+
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
 
-            // If response is not ok, read the error message from the body
-            if (!response.ok) {
-                return reader.read().then(({value}) => {
-                    throw new Error(`Server error (${response.status}): ${decoder.decode(value)}`);
-                });
-            }
-            
-            function processStream({ done, value }) {
-                if (done) { return; }
+            // Use a loop to read the stream, which is cleaner with async/await
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) {
+                    break; // Exit the loop when the stream is finished
+                }
                 outputDiv.textContent += decoder.decode(value);
-                return reader.read().then(processStream);
             }
-            return reader.read().then(processStream);
-        })
-        .catch(error => {
+
+        } catch (error) {
             console.error('Error fetching slime chunk data:', error);
-            outputDiv.textContent = error.message;
-        });
+            // This will now catch timeouts and all other network failures
+            outputDiv.textContent += "\n\n--- \nError: The request failed. The max search radius is 6250. " + error;
+        }
     });
 </script>

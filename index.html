@@ -1,8 +1,6 @@
 ---
 layout: page
 ---
-<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-
 <div class="profile-container">
     <img src="../assets/images/profile_pic.JPEG" alt="Profile picture" class="profile-pic">
     <div class="text-container">
@@ -10,21 +8,5 @@ layout: page
         <p class="description">
             I'm a math and computer science student at Oregon State University, currently getting a head start on my master's degree through the Accelerated Master's Program (AMP). My primary focus is on Natural Language Processing, and I conduct research in this area with OSU's STAR Lab—work I intend to continue in grad school. Alongside my research, I'm collaborating with a team at the lab on a startup venture where we're using advanced language models to solve a set of practical problems. I'm driven by the intersection of mathematical precision and technological application, and I'm excited by the potential to build genuinely useful tools with AI... It's also just super cool!
         </p>
-        <div class="clock-container">
-            <a href="https://github.com/bergerjacob/clocks-clock" target="_blank" rel="noopener noreferrer" class="clock-link">
-                <iframe
-                    id="clock-widget"
-                    src="https://bergerjacob.github.io/clocks-clock/?height=80&faceColor1=6c757d&faceColor2=343a40&handColor=f8f9fa&inactiveAlpha=60&transparentBg=true&digitSpacing=0&mode=5x3"
-                    class="clock-iframe"
-                    title="Monochrome Clock Widget">
-                </iframe>
-            </a>
-            <div class="switch-container">
-                <input type="checkbox" id="mode-switch" class="mode-switch-checkbox">
-                <label for="mode-switch" class="mode-switch-label"></label>
-            </div>
-        </div>
     </div>
 </div>
-
-<script src="{{ '/switch.js' | relative_url }}"></script>

@@ -43,15 +43,31 @@
     <body>
         <header>
             <h1><a href="{{ '/' | relative_url }}">Jacob Berger</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                    <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
-                    <li><a href="{{ '/projects' | relative_url }}">Projects</a></li>
-                    <li><a href="{{ '/calendar' | relative_url }}">Calendar</a></li>
-                    <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                        <li><a href="{{ '/resume' | relative_url }}">Resume</a></li>
+                        <li><a href="{{ '/projects' | relative_url }}">Projects</a></li>
+                        <li><a href="{{ '/calendar' | relative_url }}">Calendar</a></li>
+                        <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="clock-container">
+                    <a href="https://github.com/bergerjacob/clocks-clock" target="_blank" rel="noopener noreferrer" class="clock-link">
+                        <iframe
+                            id="clock-widget"
+                            src="https://bergerjacob.github.io/clocks-clock/?height=60&faceColor1=6c757d&faceColor2=343a40&handColor=f8f9fa&inactiveAlpha=60&transparentBg=true&digitSpacing=0&mode=5x3"
+                            class="clock-iframe"
+                            title="Monochrome Clock Widget">
+                        </iframe>
+                    </a>
+                    <div class="switch-container">
+                        <input type="checkbox" id="mode-switch" class="mode-switch-checkbox">
+                        <label for="mode-switch" class="mode-switch-label"></label>
+                    </div>
+                </div>
+            </div>
         </header>
         <div class="container">
             {{ content }}
@@ -59,5 +75,6 @@
         <footer>
             <p>© {{ site.time | date: '%Y' }} {{ site.title }}. All Rights Reserved.</p>
         </footer>
+        <script src="{{ '/switch.js' | relative_url }}"></script>
     </body>
 </html>
