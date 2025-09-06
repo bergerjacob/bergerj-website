@@ -1,144 +1,40 @@
 ---
 layout: page
-title: Apps
+title: Optimal Slime Chunk Finder
 ---
-<link rel="stylesheet" href="{{ '/projects/style.css' | relative_url }}">
-<style>
-    body { font-family: sans-serif; }
-    #controls { display: flex; flex-direction: column; gap: 10px; max-width: 350px; margin-bottom: 20px; }
-    #controls div { display: flex; justify-content: space-between; align-items: center; }
-    input[type=number] { width: 150px; }
-    #output { margin-top: 20px; }
-    #status { font-style: italic; color: #555; min-height: 1.2em; }
-    table { border-collapse: collapse; width: 100%; max-width: 600px; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f2f2f2; }
-    a { color: #007bff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .note { font-size: 0.9em; color: #777; margin-top: 15px; }
-</style>
+<link rel="stylesheet" href="style.css">
 
-<div id="controls">
-    <div>
-        <label for="seedInput">Minecraft Seed:</label>
-        <input type="number" id="seedInput" placeholder="Enter Minecraft seed">
+<div class="slime-container">
+  <div class="slime-finder-app">
+    <div id="controls">
+        <div>
+            <label for="seedInput">Minecraft Seed:</label>
+            <input type="number" id="seedInput" placeholder="Enter Minecraft seed">
+        </div>
+        <div>
+            <label for="startRadiusInput">Start Radius (Chunks):</label>
+            <input type="number" id="startRadiusInput" value="20">
+        </div>
+        <div>
+            <label for="endRadiusInput">End Radius (Chunks):</label>
+            <input type="number" id="endRadiusInput" value="500">
+        </div>
     </div>
-    <div>
-        <label for="startRadiusInput">Start Radius (Chunks):</label>
-        <input type="number" id="startRadiusInput" value="20">
+
+    <button id="findChunks">Find Optimal Slime Chunk</button>
+
+    <div id="output">
+        <p id="status"></p>
+        <div id="resultsTable"></div>
     </div>
-    <div>
-        <label for="endRadiusInput">End Radius (Chunks):</label>
-        <input type="number" id="endRadiusInput" value="500">
+
+    <div class="user-notes">
+        <p><b>Purpose:</b> The goal is to find the optimal center for a large-scale slime farm. This tool identifies the location with the highest concentration of slime chunks within the 128-block mob spawning radius. Finding the best spot is most important for maximizing the output of high-efficiency designs, such as <a href="https://www.reddit.com/r/technicalminecraft/comments/xc1zxi/15_mil_slimehr_farm_in_singleplayer_survival/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" target="_blank">update-suppressed portal farms</a> built at Y=0.</p>
+        <p><b>Usage Notes:</b> This works in Minecraft: Java Edition (1.12+). The block coordinates point to the center of the optimal chunk. For precise farm placement, some in-game experimentation may be needed. You can click on the chunk coordinates in the results to open the location in Chunkbase.</p>
+        <p><b>Performance:</b> The search time increases significantly with larger radii. A search up to the maximum radius of 6250 chunks (a 100,000 block wide square) may take quite a while in your browser.</p>
+        <p><b>Local Version:</b> For much faster results, you can run this tool locally from its <a href="https://github.com/bergerjacob/slime-area-finder/" target="_blank">GitHub repository</a>. The repo is not well-documented, so you are on your own to get the Java environment running.</p>
     </div>
+  </div>
 </div>
 
-<button id="findChunks">Find Optimal Slime Chunk</button>
-<div id="output">
-    <p id="status"></p>
-    <div id="resultsTable"></div>
-    <p class="note"><b>Note:</b> Block coordinates point to the center of the chunk. For optimal farm placement, some in-game experimentation around this point may be needed.</p>
-</div>
-
-<script>
-    const findChunksButton = document.getElementById('findChunks');
-    const statusDiv = document.getElementById('status');
-    const resultsTableDiv = document.getElementById('resultsTable');
-
-    function renderResults(results) {
-        if (!results || results.length === 0) {
-            resultsTableDiv.innerHTML = '';
-            return;
-        }
-        let tableHTML = `
-            <table>
-                <tr>
-                    <th>Rank</th>
-                    <th>Slime Chunks in Range</th>
-                    <th>Chunk Coords (X, Z)</th>
-                    <th>Block Coords (X, Z)</th>
-                </tr>`;
-        
-        results.forEach((result, index) => {
-            const blockX = result.chunk.x * 16 + 8;
-            const blockZ = result.chunk.z * 16 + 8;
-            const seed = document.getElementById('seedInput').value;
-            const chunkbaseUrl = `https://www.chunkbase.com/apps/slime-finder#seed=${seed}&platform=java&x=${blockX}&z=${blockZ}&zoom=1`;
-
-            tableHTML += `
-                <tr>
-                    <td>#${index + 1}</td>
-                    <td>${result.slimeCount}</td>
-                    <td><a href="${chunkbaseUrl}" target="_blank" title="View on Chunkbase">${result.chunk.x}, ${result.chunk.z}</a></td>
-                    <td>${blockX}, ${blockZ}</td>
-                </tr>`;
-        });
-        tableHTML += '</table>';
-        resultsTableDiv.innerHTML = tableHTML;
-    }
-
-    findChunksButton.addEventListener('click', async () => {
-        const seed = document.getElementById('seedInput').value;
-        const startRadius = parseInt(document.getElementById('startRadiusInput').value, 10);
-        const endRadius = parseInt(document.getElementById('endRadiusInput').value, 10);
-
-        if (!seed) {
-            statusDiv.textContent = 'Please enter a seed.';
-            return;
-        }
-        statusDiv.textContent = '';
-        resultsTableDiv.innerHTML = '';
-        findChunksButton.disabled = true;
-
-        const apiUrl = 'https://slime-area-finder.onrender.com/find-optimal-chunk';
-        let leftover = '';
-
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ seed: parseInt(seed, 10), startRadius, endRadius })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Server error (${response.status}): ${errorData.error}`);
-            }
-            
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder();
-
-            while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                
-                const chunk = leftover + decoder.decode(value, { stream: true });
-                const lines = chunk.split('\n');
-                leftover = lines.pop();
-
-                for (const line of lines) {
-                    if (line.trim() === '') continue;
-                    try {
-                        const data = JSON.parse(line);
-                        if (data.results) {
-                            renderResults(data.results);
-                        } else if (data.progress) {
-                            statusDiv.textContent = `Scanning... Current Radius: ${data.progress.currentRadius} / ${data.progress.endRadius}`;
-                        } else if (data.message) {
-                            statusDiv.textContent = data.message;
-                        } else if (data.error) {
-                            throw new Error(data.error);
-                        }
-                    } catch (e) {
-                        console.warn("Could not parse JSON line:", line);
-                    }
-                }
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            statusDiv.textContent = "An error occurred: " + error.message;
-        } finally {
-            findChunksButton.disabled = false;
-        }
-    });
-</script>
+<script src="script.js"></script>

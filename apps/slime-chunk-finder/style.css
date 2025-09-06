@@ -1,0 +1,97 @@
+/* Slime Finder App Container */
+.slime-finder-app {
+    padding: 20px 0; /* Add some vertical spacing */
+}
+
+/* Input and Button Controls */
+.slime-finder-app #controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin-bottom: 25px;
+}
+
+.slime-finder-app #controls div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slime-finder-app input[type=number],
+.slime-finder-app button {
+    background-color: #2a2a2e; /* Darker than body for contrast */
+    color: #d4d4d4;
+    border: 1px solid #555;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit; /* Use the site's default font */
+}
+
+.slime-finder-app input[type=number] {
+    width: 180px;
+}
+
+.slime-finder-app button {
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.slime-finder-app button:hover:not(:disabled) {
+    background-color: #444;
+}
+
+.slime-finder-app button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Output Area (Status and Table) */
+.slime-finder-app #output {
+    margin-top: 25px;
+}
+
+.slime-finder-app #status {
+    font-style: italic;
+    color: #aaa;
+    min-height: 1.2em;
+}
+
+.slime-finder-app table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 15px;
+}
+
+.slime-finder-app th,
+.slime-finder-app td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: left;
+}
+
+.slime-finder-app th {
+    background-color: #2a2a2e;
+}
+
+/* Make table links stand out slightly more */
+.slime-finder-app table a {
+    font-weight: bold;
+}
+
+/* Notes Section */
+.slime-finder-app .user-notes {
+    margin-top: 30px;
+    max-width: 700px;
+    font-size: 0.9em;
+    color: #999;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+}
+
+.slime-finder-app .user-notes p {
+    margin-bottom: 12px;
+}
