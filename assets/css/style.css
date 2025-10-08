@@ -76,7 +76,7 @@ nav ul li a {
 
 nav ul li a:hover, header .highlight, header .current a {
     color: var(--favorite-purple);
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 /* === Homepage Profile Section Styles === */
