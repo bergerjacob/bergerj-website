@@ -132,6 +132,30 @@ nav ul li a:hover, header .highlight, header .current a {
     animation: subtle-glow 1.5s ease-in-out infinite alternate;
 }
 
+.hover-hint {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 10;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic-wrapper:hover .hover-hint {
+    opacity: 0;
+    transform: translateY(4px);
+}
+
 @keyframes subtle-glow {
     0% {
         filter: drop-shadow(0 0 8px rgba(210, 53, 233, 0.3));
