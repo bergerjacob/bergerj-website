@@ -87,11 +87,58 @@ nav ul li a:hover, header .highlight, header .current a {
     margin-top: 40px;
 }
 
+.profile-pic-wrapper {
+    position: relative;
+    width: 480px;
+    height: 600px;
+    max-width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
 .profile-pic {
     width: 480px;
+    height: 600px;
     max-width: 100%;
-    height: auto;
+    object-fit: cover;
+    object-position: center;
     border-radius: 15px;
+    transition: opacity 0.6s ease-in-out;
+    display: block;
+}
+
+.profile-pic-anime {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    border-radius: 15px;
+}
+
+.profile-pic-wrapper:hover .profile-pic:not(.profile-pic-anime) {
+    opacity: 0;
+}
+
+.profile-pic-wrapper:hover .profile-pic-anime {
+    opacity: 1;
+}
+
+.profile-pic-wrapper:hover {
+    animation: subtle-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-glow {
+    0% {
+        filter: drop-shadow(0 0 8px rgba(210, 53, 233, 0.3));
+    }
+    100% {
+        filter: drop-shadow(0 0 16px rgba(210, 53, 233, 0.6));
+    }
 }
 
 .text-container {
@@ -222,5 +269,16 @@ footer {
     .profile-container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .profile-pic-wrapper {
+        height: auto;
+        aspect-ratio: 480 / 600;
+    }
+
+    .profile-pic,
+    .profile-pic-anime {
+        height: 100%;
+        aspect-ratio: 480 / 600;
     }
 }
