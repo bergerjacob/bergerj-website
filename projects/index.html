@@ -5,14 +5,38 @@ title: Projects
 <link rel="stylesheet" href="{{ '/projects/style.css' | relative_url }}">
 
 <p>Here are some of the cool things I've worked on not featured elsewhere:</p>
+
+<h3>Featured Engineering</h3>
 <ul>
-    <li><strong>COMAP 2023 Submission - Modeling Ecosystem Stability Under Climate Change</strong> - This project was submitted to the COMAP Mathematical Contest in Modeling, a rigorous four-day nationwide competition for college students. Competing under Oregon State University, my teammate and I developed mathematical models to assess the resilience of ecosystems to changes in precipitation influenced by climate change. We utilized both continuous and cellular automata methods, with my specific focus on the cellular automata model to analyze spatial dynamics and interactions within ecosystems. Our approach allowed us to explore ecosystem adaptability and stability, with our results validated through comparative analyses with continuous models, illustrated in detailed graphical time-series simulations. <a href="./documents/COMAP_2023.pdf">[Link to project]</a></li>
-    <li><strong>Mathematical Modeling of Bowling Ball Dynamics for Practical On-Lane Performance</strong> - In this project, I developed a mathematical model from scratch, creating a system of differential equations to capture the dynamics of bowling balls on oiled lanes. This model simulates the intricate behaviors of ball roll, hook, and lane interaction, using Python to implement the equations and visualize ball trajectories. While it currently serves as a foundational tool for future refinement, it demonstrates potential applications in enhancing bowling strategies through simulated adjustments. This approach addresses a significant gap in current research and tooling, where high-end mathematical models often lack practical applicability for bowlers who have limited technical knowledge of their ball motion. <a href="./documents/Bowling_Modeling.pdf">[Link to project]</a></li>
-    <!--<li><strong>Project 2:</strong> Brief description. <a href="#">[Link to project]</a></li>-->
+    <li>
+        <strong>MIRA - AI-Driven Logic Verification & Optimization Agent (In Progress)</strong> - 
+        As the sole developer, I am building an iterative AI agent designed to generate, debug, and verify complex logic circuits (Minecraft Redstone). Unlike standard generative models, MIRA uses a <strong>Reinforcement Learning from Execution Feedback (RLEF)</strong> loop to rigorously test designs against executable "contracts." The system features a custom headless simulation environment (decoupled from rendering for high-throughput training), a "Corruptor" engine that generates synthetic training data by injecting mechanical faults into valid circuits, and a "Bedrocking" system to freeze verified logic modules—mimicking formal verification checkpoints used in chip design. 
+        <a href="https://github.com/bergerjacob/mira/blob/main/docs/technical_design.md">[View Technical Design Document]</a>
+    </li>
 </ul>
 
-<h3>Web Applications &amp; Tools</h3>
+<h3>Mathematical Modeling & Simulation</h3>
 <ul>
-    <li><strong>View All Web Apps</strong> - A complete collection of web tools and utilities I've built (more to come!). <a href="/apps/">[Link to apps directory]</a></li>
-    <li><strong>Optimal Slime Chunk Finder</strong> - An interactive web tool for Minecraft: Java Edition that helps players find the most efficient location for a large-scale slime farm. The app calls a custom-built API to perform calculations on the world seed, processing the results as a stream to provide real-time progress updates to the user. It's designed to identify the center point with the highest concentration of slime chunks within a given radius, maximizing mob spawning rates. <a href="/apps/slime-chunk-finder/">[Link to app]</a></li>
+    <li>
+        <strong>COMAP 2023 - Modeling Ecosystem Stability Under Climate Change</strong> - 
+        Submitted to the rigorous COMAP Mathematical Contest in Modeling, my teammate and I developed models to assess ecosystem resilience to precipitation changes. My specific focus was implementing <strong>Cellular Automata</strong> methods—simulating discrete grid-based interactions similar to logic gates—to analyze spatial dynamics and predict system stability over time. Our results were validated through comparative analyses with continuous differential equation models. 
+        <a href="./documents/COMAP_2023.pdf">[Link to project]</a>
+    </li>
+    <li>
+        <strong>Dynamics Simulation of Rigid Bodies on Oiled Surfaces</strong> - 
+        I developed a physics engine from scratch to model the non-linear dynamics of bowling balls. This involved constructing a system of differential equations to capture friction transitions, rotational inertia, and surface interaction, implementing the solver in Python to visualize complex trajectories. This project addresses a gap in tooling by applying rigorous physics modeling to practical sport dynamics. 
+        <a href="./documents/Bowling_Modeling.pdf">[Link to project]</a>
+    </li>
+</ul>
+
+<h3>Tools & Optimization</h3>
+<ul>
+    <li>
+        <strong>Optimal Slime Chunk Finder (Spatial Optimization Tool)</strong> - 
+        An interactive tool that solves a spatial optimization problem for Minecraft world seeds. It uses a custom API to process large 2D grid datasets via stream processing, identifying local maxima for mob spawning rates in real-time. Designed to handle high-throughput calculations to find the statistically optimal coordinate for farm placement. 
+        <a href="/apps/slime-chunk-finder/">[Link to app]</a>
+    </li>
+    <li>
+        <strong>View All Web Utilities</strong> - A complete collection of web tools and utilities I've built. <a href="/apps/">[Link to apps directory]</a>
+    </li>
 </ul>
