@@ -1,0 +1,114 @@
+---
+layout: default
+title: Portfolio
+---
+<link rel="stylesheet" href="{{ '/portfolio/style.css' | relative_url }}">
+
+<div class="portfolio-container">
+    <!-- Compact Top Bar -->
+    <div class="portfolio-intro">
+        <div class="portfolio-role">AI Researcher & Software Engineer</div>
+        <div class="portfolio-links">
+            <a href="mailto:jacob@bergerj.com">jacob@bergerj.com</a>
+            <a href="{{ '/resume' | relative_url }}">Full Resume</a>
+            <a href="https://github.com/bergerjacob" target="_blank">GitHub</a>
+        </div>
+    </div>
+
+    <!-- The Big Three Highlights (Grid) -->
+    <div class="featured-grid">
+        
+        <!-- Highlight 1: Experience -->
+        <div class="featured-card">
+            <div class="card-type">Experience</div>
+            <div class="card-title">NLP SaaS Startup</div>
+            <div class="card-subtitle">Portland, OR</div>
+            <div class="card-content">
+                <ul>
+                    <li>Architected end-to-end data pipelines for training specialized LLMs.</li>
+                    <li>Led and co-authored the approved Phase I SBIR proposal.</li>
+                    <li>Deployed cloud infrastructure on AWS, GCP, and Vercel.</li>
+                </ul>
+            </div>
+            <div class="card-links">
+                <a href="{{ '/resume' | relative_url }}">View Experience Details →</a>
+            </div>
+        </div>
+
+        <!-- Highlight 2: Research -->
+        <div class="featured-card">
+            <div class="card-type">Research</div>
+            <div class="card-title">Dynamic Constraints for LLMs</div>
+            <div class="card-subtitle">Honors Thesis</div>
+            <div class="card-content">
+                <ul>
+                    <li>Developing a dynamic constraint system for Large Language Models.</li>
+                    <li>Improving text generation for computational semantics.</li>
+                    <li>Advisor: Dr. Lizhong Chen, STAR Lab.</li>
+                </ul>
+            </div>
+            <div class="card-links">
+                <!-- Research usually doesn't have a link until published, so linking to Resume/Projects generally -->
+                <a href="{{ '/resume' | relative_url }}">View Research Details →</a>
+            </div>
+        </div>
+
+        <!-- Highlight 3: Project -->
+        <div class="featured-card">
+            <div class="card-type">Project</div>
+            <div class="card-title">MIRA - Verification Agent</div>
+            <div class="card-subtitle">AI & Logic Verification</div>
+            <div class="card-content">
+                <ul>
+                    <li>Iterative AI agent to verify complex logic circuits (Minecraft Redstone).</li>
+                    <li>Uses Reinforcement Learning from Execution Feedback (RLEF).</li>
+                    <li>Custom headless simulation & "Bedrocking" verification system.</li>
+                </ul>
+            </div>
+            <div class="card-links">
+                <a href="https://github.com/bergerjacob/mira/blob/main/docs/technical_design.md" target="_blank">Technical Design Doc →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Compact Secondary Info -->
+    <div class="secondary-grid">
+        <div class="info-panel">
+            <div class="panel-title">Education</div>
+            <div class="edu-row">
+                <div>
+                    <span class="edu-degree">MS in Computer Science</span> <span class="edu-school">- Oregon State University</span>
+                </div>
+                <div class="edu-date">Exp. 2026-2027</div>
+            </div>
+            <div style="font-size: 0.85rem; color: #888; margin-bottom: 8px;">AI Concentration • Accelerated Master's</div>
+            
+            <div class="edu-row">
+                <div>
+                    <span class="edu-degree">BS in Applied CS & Math</span> <span class="edu-school">- Oregon State University</span>
+                </div>
+                <div class="edu-date">2022-2026</div>
+            </div>
+            <div style="font-size: 0.85rem; color: #888;">Double Major • GPA: 3.9+</div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-title">Core Skills</div>
+            <div class="skills-inline">
+                <span class="mini-tag">Python</span>
+                <span class="mini-tag">C++</span>
+                <span class="mini-tag">PyTorch</span>
+                <span class="mini-tag">LLMs (LoRA/RAG)</span>
+                <span class="mini-tag">Linux/Debian</span>
+                <span class="mini-tag">Virtualization (Proxmox/KVM)</span>
+                <span class="mini-tag">AWS/GCP</span>
+                <span class="mini-tag">Full Stack Web</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="view-more-container">
+        <a href="{{ '/projects' | relative_url }}" class="view-more-btn">Browse All Projects & Experience</a>
+    </div>
+</div>
