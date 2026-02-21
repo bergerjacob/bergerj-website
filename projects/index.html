@@ -6,10 +6,15 @@ title: Projects
 
 <p>Here are some of the cool things I've worked on not featured elsewhere:</p>
 
-<h3>Featured Engineering</h3>
+<h3>Deep Learning & AI</h3>
 <ul>
     <li>
-        <strong>MIRA - AI-Driven Logic Verification & Optimization Agent (In Progress)</strong> - 
+        <strong>RELCube - Relational Embedding Transformer for Rubik's Cube Solving (In Progress)</strong> - 
+        A Transformer-based deep learning solver targeting state-of-the-art performance with orders of magnitude fewer parameters. Uses structured piece representation (corners + edges) to exploit the cube's physical geometry rather than learning geometry from scratch. Dual-head architecture: Value Head predicts distance-to-solve, Policy Head predicts optimal next move. Trained with Approximate Value Iteration and an Expanding Curriculum to bootstrap optimal paths. Integrated with A* search for full solutions. Team of 3 for class final project.
+        <a href="#">[Coming Soon]</a>
+    </li>
+    <li>
+        <strong>MIRA - Minecraft Iterative Reasoning Agent (In Progress)</strong> - 
         As the sole developer, I am building an iterative AI agent designed to generate, debug, and verify complex logic circuits (Minecraft Redstone). Unlike standard generative models, MIRA uses a <strong>Reinforcement Learning from Execution Feedback (RLEF)</strong> loop to rigorously test designs against executable "contracts." The system features a custom headless simulation environment (decoupled from rendering for high-throughput training), a "Corruptor" engine that generates synthetic training data by injecting mechanical faults into valid circuits, and a "Bedrocking" system to freeze verified logic modules—mimicking formal verification checkpoints used in chip design. 
         <a href="https://github.com/bergerjacob/mira/blob/main/docs/technical_design.md">[View Technical Design Document]</a>
     </li>
