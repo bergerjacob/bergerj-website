@@ -25,6 +25,12 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
 
+      # Pin Node to a version unaffected by the keep-alive regression
+      # (nodejs/node#63989) that causes false-negative Firebase deploys.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.1'
+
       # Deploy to Firebase
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
