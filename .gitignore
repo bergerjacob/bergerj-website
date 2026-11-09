@@ -7,3 +7,4 @@ vendor/
 .firebase/
 firebase-debug.log*
 Gemfile.lock
+.bundle/
